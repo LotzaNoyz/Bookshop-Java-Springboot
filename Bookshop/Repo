@@ -1,0 +1,19 @@
+package com.example.bookshop.repo;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.bookshop.model.*;  
+
+public interface bookrepo extends CrudRepository<books, Integer> {
+
+	@Query
+	(value = "SELECT b FROM books b ORDER BY bookname")
+	   public List<books> findAllSortedByName();
+	   
+	   @Query
+	   ("SELECT c from books c WHERE c.bookname = ?1 and c.bookid = ?2")
+	   books findBooksByNameAndIdJPQL(String bookname, int bookid);
+}
