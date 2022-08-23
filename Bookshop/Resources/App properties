@@ -1,3 +1,5 @@
+// profiles can be changed. For example, i have profiles for a prod list, dev list and test.
+
 spring.profiles.active=dev
 
 
